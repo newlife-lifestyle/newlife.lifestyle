@@ -1,5 +1,11 @@
 @import "nlmq"
 
+$lightblue: #d7fbfc
+$darkblue: #184d63
+$darkgreen: #083f3a
+$gray-blue: #e8f0fc
+$gray: #f9f9f9
+
 html, body
   margin: 0
   padding: 0
@@ -7,14 +13,43 @@ html, body
   font-family: Montserrat, sans-serif
   min-height: 100%
 
+button
+  background-color: $gray
+  border: 2px $darkblue solid
+  border-radius: 10px
+  width: 88px
+  height: 40px
+  font-size: 12px
+  a
+    color: $darkblue
+button:hover
+  background-color: $darkblue
+  a
+    color: $gray
 a
   text-decoration: none
+
+
+nav ul li a.link
+  border-bottom: $darkgreen 2px solid
+  color: $darkgreen
+
+nav ul li a::after
+  content: ''
+  display: block
+  width: 0
+  height: 2px
+  background: #000
+  transition: width .3s
+
+nav ul li a:hover::after
+  width: 100%
+
 
 #bold
   font-weight: 600
 
 #logo
-  // margin-left: 40%
   overflow: hidden
   display: flex
   justify-content: center
@@ -23,7 +58,7 @@ a
   position: fixed
   top: 200px
   z-index: 2000
-  left: -38px
+  left: -40px
   li
     list-style: none
     line-height: 0
@@ -31,9 +66,12 @@ a
 
 .menu-bar
   nav
-    margin: auto
-    width: 50%
-    text-align: center
+    width: 100%
+    background-color: $gray
+    position: absolute
+    display: flex
+    justify-content: center
+    height: 50px
 
   nav ul
     position: absolute
@@ -41,37 +79,38 @@ a
     text-decoration: none
     list-style: none
     margin: auto
-    margin-top: 20px
+    background-color: $gray
     a
       text-decoration: none
-      color: #2a4570
+      color: black
     li
       text-transform: uppercase
       float: left
-      padding: 18px
+      padding: 15px 15px 10px 15px
       font-weight: 600
+
 
 .menu-bar-mobile
   display: flex
   flex-direction: row
   position: absolute
   z-index: 2100
-  // margin-right: 40%
   justify-content: center
   text-transform: uppercase
   width: 100%
   height: 50px
   cursor: pointer
   display: none
-  // position: fixed
   h4
-    margin-top: 10px
+    margin-top: 18px
     padding-right: 5px
+  img
+    margin-top: 6px
 .closebtn
   right: 0px
   z-index: 2300
   margin-top: -10px
-  position: fixed
+  position: absolute
   display: none
   button
     z-index: 2300
@@ -79,15 +118,15 @@ a
     border: none
     background-color: transparent
     cursor: pointer
+    color: white
 
 .mobile-menu
   nav
     margin: auto
     width: 100%
     text-align: center
-    position: fixed
     z-index: 2000
-    background-color: white
+    background-color: $darkgreen
     height: 280px
     padding-top: 40px
     display: none
@@ -96,16 +135,29 @@ a
       text-decoration: none
     a
       text-decoration: none
-      color: #2a4570
+      color: white
     li
       text-transform: uppercase
       font-weight: 600
       line-height: 3
 
+.mobile-menu nav ul li a.link
+      border-bottom: white 2px solid
+      color: white
+
+.mobile-menu nav ul li a::after
+      content: ''
+      display: block
+      width: 0
+      height: 2px
+      background: white
+      transition: width .3s
+
+.mobile-menu nav ul li a:hover::after
+      width: 100%
 
 .home-feature
-  // position: absolute
-  margin-top: -20px
+  margin-top: 40px
   display: flex
   overflow: hidden
   max-height: 100vh
@@ -114,38 +166,43 @@ a
 .index-about
   position: relative
   margin-top: 50px
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  align-items: center
-  justify-content: space-around
   width: 100%
+  background-color: $gray
+  padding-bottom: 30px
+  a
+    color: $darkgreen
+    font-weight: 600
   img
-    padding: 0 50px
-    overflow: hidden
+    width: 100%
   .about-info
-    max-width: 400px
+    max-width: 800px
     padding: 10px 20px
     line-height: 1.5
+    background-color: white
+    position: relative
+    margin-top: -60px
+    margin-left: 80px
+    padding-left: 10px
+    border: 3px solid $darkblue
+    box-shadow: 20px 40px $darkblue
 
 .index-treatment
-  position: relative
-  margin-top: 100px
   display: flex
   flex-direction: row-reverse
   flex-wrap: wrap
   align-items: center
   justify-content: space-around
   width: 100%
-  background-color: #2a4570
-  color: #d7fbfc
   line-height: 1.5
-  img
-    padding: 100px 50px
-    overflow: hidden
   .treatment-info
     max-width: 400px
-    padding: 10px 20px 70px 20px
+    padding: 15px
+    position: relative
+    outline: 3px solid $darkblue
+    outline-offset: 10px
+    position: relative
+    right: 12px
+    left: 10px
 
 .index-media
   width: 100%
@@ -156,210 +213,219 @@ a
   flex-wrap:  wrap
   justify-content: space-around
   padding: 30px
+  background-color: $darkgreen
+  right: 20px
+  position: relative
+  color: $gray
   .media-info
     max-width: 400px
   iframe
     max-width: 450px
 
-.index-reviews
-  width: 100%
-  display: flex
-  flex-wrap: wrap
-  background-color:  #d7fbfc
-  color: #2a4570
-  align-items: center
-  flex-direction: column
-  // max-height: 350px
-  // overflow-y: scroll
+
 .comments
-  p
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    max-width: 500px
-    padding: 35px
-    max-height: 200px
-    margin: auto
-    // overflow-y: scroll
+  padding: 20px
+  max-width: 650px
+  position: relative
+  margin: auto
+  height: 350px
+  background-color: $gray
+  overflow-y: hidden
+  text-align: center
+  -ms-transform: skewX(-8deg); /* IE 9 */
+  -webkit-transform: skewX(-8deg); /* Safari */
+  transform: skewX(-8deg); /* Standard syntax */
+  box-shadow: 40px 20px $darkblue
+  border: 3px solid $darkblue
+  top: 30px
+  h2
+    padding-top: 20px
+
+.customer-review
+  height: 200px
+  margin-top: 14%
+  -ms-transform: skewX(8deg); /* IE 9 */
+  -webkit-transform: skewX(8deg); /* Safari */
+  transform: skewX(8deg); /* Standard syntax */
+
+/* Next & previous buttons */
+.prev, .next
+  cursor: pointer
+  position: absolute
+  top: 45%
+  width: auto
+  padding: 16px
+  color: black
+  font-weight: bold
+  font-size: 18px
+.prev
+  left: 0px
+.next
+  right: 0
 
 
-#button1
-    position: relative
-    width: 50px
-    height: 50px
-    border: none
-    border-radius: 40px
-    background: #ffffff
-    opacity: 0.6
-    z-index: 2000
-#button2
-      position: relative
-      width: 50px
-      height: 50px
-      border: none
-      border-radius: 40px
-      background: #ffffff
-      opacity: 0.6
-      z-index: 2000
-
-
-
-.philosophy-title, .doctor-title
+.section-title
   width: 100%
   height: 120px
   position: relative
-  background-color: #2a4570
-  color:  #d7fbfc
-  margin-top: 100px
+  background-color: $darkblue
+  color:  white
+  margin-top: 50px
   display: flex
   align-items: center
   h2
     margin: auto
 
-.philosophy-info, .doctor
+.philosophy-info
   display:  flex
   flex-wrap: wrap
-  position: relative
   flex-direction: column
-  margin-top: 50px
-  align-items: center
-  justify-content: space-around
-  padding: 15px 25px
+  align-items: flex-end
+  background-image: url('../img/clinic-pic.jpg')
   p
-    max-width: 700px
-  figure
-    overflow: hidden
-    max-width: 400px
-    max-height: 300px
-//     animation: 15s fading infinite
-//
-// @keyframes fading
-//     0%
-//       opacity: 1
-//     45%
-//       opacity: 1
-//     55%
-//       opacity: 0
-//     100%
-//       opacity: 0
+    max-width: 600px
+    background-color: $gray
+    opacity: 0.8
+    padding: 20px
+    border-radius: 20px
+    line-height: 1.2
+    margin: 20px
 
-    // float: left
-    // position: absolute
-
+.doctors
+  display: flex
+  flex: column
+  flex-wrap: wrap
 .doctor
   display: flex
   flex-direction: row
   flex-wrap: wrap
+  justify-content: space-around
+  width: 100%
+  align-items: flex-start
+  margin-top: 50px
   img
     width: 250px
     height: 250px
+    border-radius: 50%
   p
-    max-width: 600px
+    max-width: 750px
+    background-color: #f9f9f9
+    border-radius: 10px
+    padding: 15px
+    border-color: #cecece
+    line-height: 1.7
+    padding-top: 10px
+
+.doctor-name
+  position: relative
+
+.name
+  position: absolute
+  bottom: -20px
+  right: -20px
+  padding: 15px
+  color: white
+  background-color: $darkblue
+  border-radius: 20px
+
 
 .solutions
   display: flex
   flex-direction: row
   flex-wrap: wrap
   padding: 25px
-  margin-top: 80px
+  margin-top: 50px
   position: relative
   padding-left: 40px
+  margin: auto
 
 .aesthetic-med, .anti-aging, .gene-test
   max-width: 300px
-  height: 600px
+  min-height: 450px
   display: flex
   flex-direction: column
   flex-wrap: wrap
   padding: 30px
-  margin: auto
-  background-color: #d7fbfc
+  margin-left: 10px
+  margin-right: 10px
+  background-color: $gray
+  border: 2px solid $darkgreen
+  p
+    line-height: 1.7
   img
-    width: 100px
+    width: 150px
+    height: 150px
+    margin-left: 25%
+
+
+.treatment-slide
+  width: 100%
+  position: relative
+  display: flex
+  flex-direction: row
+  opacity: 0.6
+  float: left
 
 .treatment-types
-  background-color: #2a4570
-  color: snow
+  background-color: $gray
+  color: black
   margin: auto
   max-width: 800px
   margin-bottom: 70px
   padding: 15px 50px
+  box-shadow: 20px 40px $darkgreen
+  margin-top: 30px
+  line-height: 1.5
 
 .media, .news
   display: flex
   flex-direction: column
   align-items: center
   justify-content: center
-  background-color: #d7fbfc
-  margin-top: 100px
+  background-color: $gray
   max-height: 80vh
   width: 100%
   padding: 30px
   margin-bottom: 40px
 
 
-.contact-bg
-  width: 100%
-  height: 100vh
-  position: relative
-  margin-top: 150px
-  display: flex
-  align-items: center
-  justify-content: center
-  flex-wrap: wrap
+.get-in-touch
+  margin-top: 50px
+  background-color: $gray
+  max-width: 2000px
+  margin-bottom: 0
+  color: black
 
-.contact-container
-  display: flex
-  flex-wrap: wrap
-  overflow: hidden
-  max-width: 800px
-  padding: 20px
 .contact-info
-  max-width: 600px
-  overflow: hidden
-  color: #2a4570
-  font-weight: 600
-.contact-map
-  width: 100%
-
-.contact-bg::after
-  content: ""
-  opacity: 0.2
-  background-image: url('../img/wismalifecare.png')
-  background-size: cover
-  position: absolute
-  z-index: -1
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-
-
-.foot-booking
-  // background-color:
-  background-color: #e2e2e2
-  color: #2a4570
-  width: 100%
-  display: flex
-  position: fixed
-  bottom: 35px
+  padding: 0 50px
+  border: 2px solid $darkgreen
   width: 100%
   display: flex
   flex-direction: row
   flex-wrap: wrap
-  align-items: center
-  justify-content: center
+  justify-content: space-around
   a
-    font-style: none
-    color: #2a4570
-  h4
-    padding: 0 10px
-  img
-    padding: 0 10px
-  // position: relative
+    background-color: $darkgreen
+    color: $gray
+    border-radius: 10px
+    padding: 10px
+
+.kota-kemuning-branch
+  margin: auto
+  background-color: $darkgreen
+  color: white
+  text-align: center
+  padding: 50px
+  a
+    color: $darkgreen
+    background-color: $gray
+    padding: 10px
+    border-radius: 10px
 
 footer
   bottom: 0px
   position: relative
   padding-left: 20px
+  padding-top: 60px
+  a
+    color: black
